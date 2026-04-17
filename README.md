@@ -10,6 +10,63 @@ Elija un problema de la vida real (sistema de gestión de biblioteca, negocio de
 
 Elegí modelar el sistema de atención para citas de la clinica para animales pequeños de la universidad en Mermaid: 
 
-
-
-<img width="3178" height="5874" alt="image" src="https://github.com/user-attachments/assets/550a76eb-6c73-4b9e-93c7-7409ace7e5a0" />
+```mermaid
+classDiagram
+direction TB
+class Animal {
++int Edad
++String Code
++String Nombre
++String Estado
+}
+class Perro {
++Camina()
++Ladra()
+}
+class Gato {
++Maulla()
++Ronrronea()
+}
+class Buho {
++Vuela()
+}
+class Persona {
++String Nombre
++String id
+}
+class Owner {
+}
+class DocVet {
++int Licencia
++Examina()
++Prescribe()
+}
+class Consulta {
++String Fecha
++String Hora
++int Costo
+}
+class Historia_Clinica {
++bool esVacunado
++bool esCastrado
+}
+class Clinica {
++String Direccion
++String Telefono
++Registrar()
++Facturar()
+}
+Animal <|-- Gato
+Animal <|-- Perro
+Animal <|-- Buho
+DocVet --|> Persona
+DocVet "1..*" *-- "1" Clinica
+Persona <|-- Owner
+DocVet "1" --> "0..*" Animal
+Clinica "1" --> "1..*" Animal
+Consulta "1..*" --* "1" Clinica
+Animal "1" -- "1" Consulta
+Historia_Clinica --> Clinica
+Consulta "1" -- "1..*" DocVet
+Owner "1" -- "0..*" Animal : Tiene
+```
