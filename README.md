@@ -11,6 +11,11 @@ Elija un problema de la vida real (sistema de gestión de biblioteca, negocio de
 Elegí modelar el sistema de atención para citas de la clinica para animales pequeños de la universidad en Mermaid: 
 
 ```mermaid
+---
+config:
+  layout: elk
+title: VetUN
+---
 classDiagram
     direction TB
 
